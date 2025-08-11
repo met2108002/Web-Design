@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVD Store - Sản phẩm</title>
+    <!-- Custom Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to the separate CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">CVD Store</a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="product.html">Sản phẩm</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- Login/Username display area -->
+            <a href="#" id="login-btn" class="login-btn" onclick="openLoginModal()">Đăng nhập</a>
+            <span id="user-info" class="user-info"></span>
+
+            <!-- Cart button with item count -->
+            <div class="cart-icon" onclick="openCartModal()">
+                &#128722;
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="product-list-container">
+            <h2>Tất cả sản phẩm</h2>
+            
+            <!-- Product Search Bar -->
+            <div class="search-container">
+                <input type="text" id="product-search" placeholder="Tìm kiếm sản phẩm...">
+            </div>
+
+            <!-- Filter and Sort Controls -->
+            <div class="controls-container">
+                <div class="filter-options">
+                    <span>Lọc theo giá:</span>
+                    <input type="radio" id="price-all" name="price-filter" value="all" checked>
+                    <label for="price-all">Tất cả</label>
+                    <input type="radio" id="price-under1m" name="price-filter" value="under1m">
+                    <label for="price-under1m">Dưới 1 triệu</label>
+                    <input type="radio" id="price-1to5m" name="price-filter" value="1to5m">
+                    <label for="price-1to5m">1 - 5 triệu</label>
+                    <input type="radio" id="price-over5m" name="price-filter" value="over5m">
+                    <label for="price-over5m">Trên 5 triệu</label>
+                </div>
+                <div class="sort-options">
+                    <label for="price-sort">Sắp xếp:</label>
+                    <select id="price-sort">
+                        <option value="none">Mặc định</option>
+                        <option value="asc">Giá thấp đến cao</option>
+                        <option value="desc">Giá cao đến thấp</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="all-products-grid" class="product-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 CVD Store. Tất cả sản phẩm là của PINO.</p>
+        <p>
+            <a href="https://www.google.com" target="_blank">Liên kết ngoài</a> |
+            <a href="tel:0987654321">0987-654-321</a> |
+            <a href="mailto:contact@cvdstore.com">contact@cvdstore.com</a>
+        </p>
+    </footer>
+    
+    <!-- Modal Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+            <h2 class="modal-title">Đăng nhập</h2>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <label for="login-username">Tên đăng nhập</label>
+                <input type="text" id="login-username" name="username" required>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-password">Mật khẩu</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit" class="login-submit-btn">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCartModal()">&times;</span>
+            <h2 class="modal-title">Giỏ hàng của bạn</h2>
+            <div id="cart-items">
+                <!-- Items will be dynamically loaded here -->
+            </div>
+            <div id="cart-total">
+                <span>Tổng cộng:</span>
+                <span id="total-price">0₫</span>
+                <button class="checkout-btn" onclick="openCheckoutModal()">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thanh toán -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+            <h2 class="modal-title">Thông tin thanh toán</h2>
+            <form class="checkout-form" onsubmit="submitOrder(event)">
+                <label for="checkout-name">Họ và tên</label>
+                <input type="text" id="checkout-name" name="name" required>
+                <label for="checkout-address">Địa chỉ</label>
+                <input type="text" id="checkout-address" name="address" required>
+                <label for="checkout-phone">Số điện thoại</label>
+                <input type="tel" id="checkout-phone" name="phone" required>
+                <button type="submit" class="submit-btn">Đặt hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Xác nhận đặt hàng -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-btn" onclick="closeConfirmationModal()">&times;</span>
+            <h2 class="modal-title">Đặt hàng thành công!</h2>
+            <p>Đơn hàng của bạn đã được tiếp nhận. Cảm ơn bạn!</p>
+            <button class="add-to-cart-btn" onclick="closeConfirmationModal()">Đóng</button>
+        </div>
+    </div>
+
+    <!-- Modal Thông báo chung -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-btn" onclick="closeAlertModal()">&times;</span>
+            <p id="alert-message"></p>
+            <button class="add-to-cart-btn" onclick="closeAlertModal()">Đóng</button>
+        </div>
+    </div>
+    
+    <!-- Link to the separate JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

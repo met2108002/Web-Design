@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVD Store - Liên hệ</title>
+    <!-- Liên kết phông chữ tùy chỉnh từ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Liên kết đến tệp CSS riêng biệt -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Phần đầu trang (Header) -->
+    <header class="header">
+        <a href="index.html" class="logo">CVD Store</a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="product.html">Sản phẩm</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <!-- Khu vực hiển thị đăng nhập/tên người dùng -->
+            <a href="#" id="login-btn" class="login-btn" onclick="openLoginModal()">Đăng nhập</a>
+            <span id="user-info" class="user-info"></span>
+
+            <!-- Nút giỏ hàng với số lượng sản phẩm -->
+            <div class="cart-icon" onclick="openCartModal()">
+                &#128722;
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Nội dung chính của trang -->
+    <main>
+        <section class="contact-section">
+            <h2>Liên hệ với chúng tôi</h2>
+            <form id="contact-form" class="contact-form" onsubmit="submitContactForm(event)">
+                <label for="contact-name">Họ và tên</label>
+                <input type="text" id="contact-name" name="name" required>
+
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" name="email" required>
+                
+                <label for="contact-message">Nội dung phản hồi</label>
+                <textarea id="contact-message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="submit-btn">Gửi phản hồi</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Phần chân trang (Footer) -->
+    <footer class="footer">
+        <p>&copy; 2023 CVD Store. Tất cả bản quyền thuộc về chúng tôi.</p>
+        <p>
+            <a href="https://www.google.com" target="_blank">Liên kết ngoài</a> |
+            <a href="tel:0987654321">0987-654-321</a> |
+            <a href="mailto:contact@cvdstore.com">contact@cvdstore.com</a>
+        </p>
+    </footer>
+
+    <!-- Modal Xác nhận liên hệ -->
+    <div id="contactConfirmationModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-btn" onclick="closeContactConfirmationModal()">&times;</span>
+            <h2 class="modal-title">Cảm ơn bạn!</h2>
+            <p>Cảm ơn quý khách đã phản hồi, chúng tôi sẽ sớm liên hệ lại với bạn.</p>
+            <button class="add-to-cart-btn" onclick="closeContactConfirmationModal()">Đóng</button>
+        </div>
+    </div>
+    
+    <!-- Liên kết đến tệp JavaScript riêng biệt -->
+    <script src="script.js"></script>
+</body>
+</html>

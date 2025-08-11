@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVD Store - Trang chủ</title>
+    <!-- Custom Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for star icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ99fQf+yUXf2r6K2pC7A5bFw66kGq9bKqF66tI9yC2sKq8kM8+q8i8t5t+q5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link to the separate CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">CVD Store</a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="product.html">Sản phẩm</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- Thêm thanh tìm kiếm sản phẩm vào header -->
+        <!-- Đã thêm event listener cho keydown trong JS để xử lý Enter -->
+        <div class="header-search-container">
+            <input type="text" id="header-product-search" placeholder="Tìm kiếm sản phẩm...">
+            <button class="search-btn" aria-label="Tìm kiếm">&#128269;</button>
+        </div>
+        <div class="header-actions">
+            <!-- Login/Username display area -->
+            <a href="#" id="login-btn" class="login-btn" onclick="openLoginModal()">Đăng nhập</a>
+            <span id="user-info" class="user-info"></span>
+
+            <!-- Cart button with item count -->
+            <div class="cart-icon" onclick="openCartModal()">
+                &#128722;
+                <span id="cart-count" class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Chào mừng đến với CVD Store</h1>
+            <p>Khám phá các sản phẩm công nghệ chất lượng cao.</p>
+        </section>
+
+        <!-- Product Search Results Section -->
+        <!-- Đây là khu vực sẽ hiển thị kết quả tìm kiếm -->
+        <div id="all-products-container" class="all-products-container" style="display: none;">
+            <h2>Kết quả tìm kiếm</h2>
+            <div id="all-products-grid" class="product-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Featured Products Section -->
+        <div id="featured-products-section" class="featured-products-container">
+            <h2>Sản phẩm nổi bật</h2>
+            <div id="featured-products-grid" class="product-grid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+        
+        <!-- Sale Products Section -->
+        <div id="sale-products-section" class="sale-products-container">
+            <h2>Ưu đãi đặc biệt</h2>
+            <div id="sale-products-grid" class="product-grid">
+                <!-- Products on sale will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Customer Feedback and Comments Section -->
+        <section id="feedback-section" class="feedback-section">
+            <h2 class="section-title">Ý kiến khách hàng</h2>
+            <p class="section-subtitle">Chia sẻ cảm nhận của bạn về sản phẩm của chúng tôi.</p>
+            <div class="feedback-container">
+                <!-- Feedback Form -->
+                <div class="feedback-form-card">
+                    <h3 class="form-title">Gửi phản hồi của bạn</h3>
+                    <form id="feedback-form">
+                        <div class="form-group">
+                            <label for="feedback-name">Tên (tùy chọn)</label>
+                            <input type="text" id="feedback-name" placeholder="Ví dụ: Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-comment">Bình luận của bạn</label>
+                            <textarea id="feedback-comment" rows="4" placeholder="Viết cảm nhận của bạn ở đây..."></textarea>
+                        </div>
+                        <div class="star-rating">
+                            <span class="rating-label">Đánh giá:</span>
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <button type="submit" class="submit-feedback-btn">Gửi Phản Hồi</button>
+                    </form>
+                </div>
+                
+                <!-- Comments Display -->
+                <div class="comments-list-card">
+                    <h3 class="form-title">Các bình luận khác</h3>
+                    <div id="comments-container" class="comments-container">
+                        <!-- Sample comments will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2>Câu chuyện của chúng tôi</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/HpXl8pO8hQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 CVD Store. Tất cả bản quyền thuộc về Chien.</p>
+        <p>
+            <a href="https://www.facebook.com/pinochien.168203/" target="_blank">Facebook</a> |
+            <a href="tel:0968168003">0968-168-003</a> |
+            <a href="mailto:contact@cvdstore.com">contact@cvdstore.com</a>
+        </p>
+    </footer>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+            <h2 class="modal-title">Đăng nhập</h2>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <label for="login-username">Tên đăng nhập</label>
+                <input type="text" id="login-username" name="username" required>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-password">Mật khẩu</label>
+                <input type="password" id="login-password" name="password" required>
+                <button type="submit" class="login-submit-btn">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCartModal()">&times;</span>
+            <h2 class="modal-title">Giỏ hàng của bạn</h2>
+            <div id="cart-items">
+                <!-- Items will be dynamically loaded here -->
+            </div>
+            <div class="discount-section">
+                <input type="text" id="discount-code-input" placeholder="Nhập mã giảm giá">
+                <button onclick="applyDiscountCode()" class="apply-discount-btn">Áp dụng</button>
+            </div>
+            <div id="cart-total">
+                <span>Tổng cộng:</span>
+                <span id="total-price">0₫</span>
+                <button class="checkout-btn" onclick="openCheckoutModal()">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thanh toán -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+            <h2 class="modal-title">Thông tin thanh toán</h2>
+            <form class="checkout-form" onsubmit="submitOrder(event)">
+                <label for="checkout-name">Họ và tên</label>
+                <input type="text" id="checkout-name" name="name" required>
+                <label for="checkout-address">Địa chỉ</label>
+                <input type="text" id="checkout-address" name="address" required>
+                <label for="checkout-phone">Số điện thoại</label>
+                <input type="tel" id="checkout-phone" name="phone" required>
+                <button type="submit" class="submit-btn">Đặt hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Xác nhận đặt hàng -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-btn" onclick="closeConfirmationModal()">&times;</span>
+            <h2 class="modal-title">Đặt hàng thành công!</h2>
+            <p>Đơn hàng của bạn đã được tiếp nhận. Cảm ơn bạn!</p>
+            <button class="add-to-cart-btn" onclick="closeConfirmationModal()">Đóng</button>
+        </div>
+    </div>
+
+    <!-- Modal Thông báo chung -->
+    <div id="alertModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-btn" onclick="closeAlertModal()">&times;</span>
+            <p id="alert-message"></p>
+            <button class="add-to-cart-btn" onclick="closeAlertModal()">Đóng</button>
+        </div>
+    </div>
+
+    <!-- Custom Alert Box (Not a Modal) -->
+    <div id="custom-alert" class="custom-alert-box"></div>
+    
+    <!-- Link to the separate JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
