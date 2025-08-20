@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MéLi's Dessert - France Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>MéLi's Dessert</h1>
+    <nav>
+      <ul>
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="about" class="nav-link">About Us</a></li>
+        <li><a href="#" data-page="menu" class="nav-link">Menu</a></li>
+        <li><a href="#" data-page="register" class="nav-link">Register</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- 🛒 Cart -->
+      <div class="cart-container">
+        <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+        <div class="cart-dropdown">
+          <h4>Your Cart</h4>
+          <ul class="cart-items"></ul>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Page -->
+    <section id="home" class="active">
+      <h2>Welcome to MéLi's Dessert</h2>
+      <div class="home-content">
+        <div class="home-text">
+          <p>Welcome to MéLi’s Dessert, your authentic taste of France right here in town. 
+             We are dedicated to crafting exquisite pastries and desserts using traditional 
+             French techniques and the finest ingredients. Each creation is a work of art, 
+             made with passion and precision to bring a little piece of Paris to your plate.</p>
+          <p>Ready to indulge? Explore our menu and place your order today!</p>
+        </div>
+        <div class="home-image">
+          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&auto=format&fit=crop&q=60" 
+               alt="Delicious French pastries at MéLi's Dessert">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about">
+      <h2>Our Story</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Founded by the passionate <strong>Madam Yuan</strong>, MéLi’s Dessert was born
+            from a love for classic French patisserie. We believe that a great dessert
+            is more than just a sweet treat — it's an <em>experience</em>.
+          </p>
+          <p>
+            Our team of skilled pastry chefs works tirelessly to perfect every recipe,
+            ensuring that each cake, macaron, and croissant meets the highest standards
+            of quality and flavor. Come and discover the sweet difference for yourself.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1170&auto=format&fit=crop" 
+               alt="Pastry chef creating French desserts">
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Page -->
+    <section id="menu">
+      <h2>Our Delicious Menu</h2>
+      <div class="dessert-grid">
+
+        <!-- Croissant -->
+        <div class="dessert-item" 
+             data-title="Butter Croissant"
+             data-img="https://images.unsplash.com/photo-1681218079567-35aef7c8e7e4?q=80&w=1074&auto=format&fit=crop"
+             data-desc="A classic, flaky, and buttery French pastry."
+             data-price="$3.50"
+             data-ingredients="Flour, Butter, Yeast, Sugar">
+          <picture>
+            <img src="https://images.unsplash.com/photo-1681218079567-35aef7c8e7e4?q=80&w=1074&auto=format&fit=crop" alt="Butter Croissant">
+          </picture>
+          <h3>Butter Croissant</h3>
+          <p>A classic, flaky, and buttery French pastry.</p>
+        </div>
+
+        <!-- Chocolate Cake -->
+        <div class="dessert-item" 
+             data-title="Chocolate Fudge Cake"
+             data-img="https://images.unsplash.com/photo-1586985289906-406988974504?q=80&w=1170&auto=format&fit=crop"
+             data-desc="Layers of moist chocolate cake with a rich, decadent fudge frosting."
+             data-price="$5.00"
+             data-ingredients="Cocoa, Flour, Butter, Eggs, Sugar">
+          <picture>
+            <img src="https://images.unsplash.com/photo-1586985289906-406988974504?q=80&w=1170&auto=format&fit=crop" alt="Chocolate Fudge Cake">
+          </picture>
+          <h3>Chocolate Fudge Cake</h3>
+          <p>Layers of moist chocolate cake with a rich, decadent fudge frosting.</p>
+        </div>
+
+        <!-- Macarons -->
+        <div class="dessert-item" 
+             data-title="Assorted Macarons"
+             data-img="https://images.unsplash.com/photo-1558326567-98ae2405596b?q=80&w=759&auto=format&fit=crop"
+             data-desc="A colorful selection of delicate meringue-based treats."
+             data-price="$2.00 each"
+             data-ingredients="Almond Flour, Egg Whites, Sugar, Buttercream">
+          <picture>
+            <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?q=80&w=759&auto=format&fit=crop" alt="Assorted Macarons">
+          </picture>
+          <h3>Assorted Macarons</h3>
+          <p>A colorful selection of delicate meringue-based treats.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Register Page -->
+    <section id="register">
+      <h2>Register for an Account</h2>
+      <form id="registration-form" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+          <span class="error-message">Name is required.</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message">A valid email is required.</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required minlength="8">
+          <span class="error-message">Password must be at least 8 characters long.</span>
+        </div>
+        
+        <h3>Shipping Address</h3>
+        <div class="form-group">
+          <label for="shipping-address">Address:</label>
+          <input type="text" id="shipping-address" name="shipping-address" required>
+          <span class="error-message">Shipping address is required.</span>
+        </div>
+        <div class="form-group">
+          <label for="shipping-zip">Zip Code:</label>
+          <input type="text" id="shipping-zip" name="shipping-zip" required pattern="^\d{5}$">
+          <span class="error-message">A 5-digit zip code is required.</span>
+        </div>
+
+        <h3>Billing Address</h3>
+        <div class="button-group">
+          <button type="button" class="button" id="copy-address-button">Copy Shipping Address</button>
+        </div>
+        <div class="form-group">
+          <label for="billing-address">Address:</label>
+          <input type="text" id="billing-address" name="billing-address" required>
+          <span class="error-message">Billing address is required.</span>
+        </div>
+        <div class="form-group">
+          <label for="billing-zip">Zip Code:</label>
+          <input type="text" id="billing-zip" name="billing-zip" required pattern="^\d{5}$">
+          <span class="error-message">A 5-digit zip code is required.</span>
+        </div>
+
+        <h3>Payment Information</h3>
+        <div class="form-group">
+          <label for="card-type">Credit Card Type:</label>
+          <select id="card-type" name="card-type" required>
+            <option value="">Select a card type</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+          <span class="error-message">Please select a card type.</span>
+        </div>
+        <div class="form-group">
+          <label for="credit-card">Credit Card Number:</label>
+          <input type="text" id="credit-card" name="credit-card" required placeholder="XXXX XXXX XXXX XXXX">
+          <span class="error-message">Please enter a valid card number.</span>
+        </div>
+
+        <button type="submit" class="form-button">Register</button>
+      </form>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>For inquiries, you can reach us at:</p>
+      <ul>
+        <li>Email: <a href="mailto:info@melisdessert.com">info@melisdessert.com</a></li>
+        <li>Phone: +1 (123) 456-7890</li>
+        <li>Address: 123 Patisserie Blvd, Paris, France</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Enhanced Popup Modal (được JS tạo động, giữ để fallback) -->
+  <div id="dessert-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img id="modal-img" src="" alt="">
+        </div>
+        <div class="modal-info">
+          <h3 id="modal-title"></h3>
+          <p id="modal-desc"></p>
+          <p class="modal-price"><strong>Price:</strong> <span id="modal-price"></span></p>
+          <p class="modal-ingredients"><strong>Main Ingredients:</strong> <span id="modal-ingredients"></span></p>
+          <button class="button accent" id="order-btn">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 MéLi's Dessert. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
